@@ -19,6 +19,14 @@ const options = {
       },
     ],
     components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: 'http',
+          scheme: 'bearer',
+          bearerFormat: 'JWT',
+          description: 'Enter JWT token in the format: Bearer {token}'
+        }
+      },
       schemas: {
         Project: {
           type: 'object',
@@ -130,6 +138,42 @@ const options = {
               type: 'string',
               description: 'User password (hashed)',
               writeOnly: true,
+            },
+            role: {
+              type: 'string',
+              enum: ['user', 'admin'],
+              default: 'user',
+              description: 'User role for authorization',
+            },
+          },
+        },
+        Auth: {
+          type: 'object',
+          properties: {
+            token: {
+              type: 'string',
+              description: 'JWT authentication token',
+            },
+            user: {
+              type: 'object',
+              properties: {
+                _id: {
+                  type: 'string',
+                  description: 'User ID',
+                },
+                name: {
+                  type: 'string',
+                  description: 'User name',
+                },
+                email: {
+                  type: 'string',
+                  description: 'User email',
+                },
+                role: {
+                  type: 'string',
+                  description: 'User role',
+                },
+              },
             },
           },
         },
@@ -259,8 +303,31 @@ const options = {
             },
           },
         },
+        Error: {
+          type: 'object',
+          properties: {
+            success: {
+              type: 'boolean',
+              example: false,
+              description: 'Operation success status',
+            },
+            message: {
+              type: 'string',
+              description: 'Error message',
+            },
+            stack: {
+              type: 'string',
+              description: 'Error stack trace (only in development)',
+            },
+          },
+        },
       },
     },
+    security: [
+      {
+        bearerAuth: [],
+      }
+    ],
   },
   apis: ['./routes/*.js', './app.js'],
 };
