@@ -26,7 +26,7 @@ The AI Project Manager is designed to solve common project management challenges
 
 ## Tech Stack
 
-- **Backend**: Node.js with TypeScript
+- **Backend**: Node.js with JavaScript
 - **Database**: MongoDB with Mongoose
 - **AI/ML**: TensorFlow.js
 - **Authentication**: JWT
