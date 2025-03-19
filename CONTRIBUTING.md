@@ -5,6 +5,7 @@ Thank you for considering contributing to the AI Project Manager! This document 
 ## Table of Contents
 
 - [Code of Conduct](#code-of-conduct)
+- [Project Maintainer](#project-maintainer)
 - [How Can I Contribute?](#how-can-i-contribute)
 - [Development Setup](#development-setup)
 - [Pull Request Process](#pull-request-process)
@@ -14,6 +15,11 @@ Thank you for considering contributing to the AI Project Manager! This document 
 ## Code of Conduct
 
 This project and everyone participating in it is governed by our Code of Conduct. By participating, you are expected to uphold this code. Please report unacceptable behavior to the project maintainers.
+
+## Project Maintainer
+
+- **Erfan Ahmadvand**
+- **Contact**: +989109924707
 
 ## How Can I Contribute?
 
