@@ -1,7 +1,7 @@
 {
   "name": "ai-project-manager",
   "version": "1.0.0",
-  "description": "An intelligent project management system with AI-powered features",
+  "description": "An intelligent project management platform leveraging AI for task estimation, workflow optimization, and resource management to enhance team productivity and project outcomes",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
