@@ -6,7 +6,7 @@ const { suggestTasks } = require('../services/ai/taskSuggestion');
 const { predictTaskDuration, predictProjectTimeline } = require('../services/ai/durationPrediction');
 const { optimizeWorkflow } = require('../services/ai/workflowOptimization');
 
-console.log('AI routes initialized (simplified version without TensorFlow)');
+console.log('AI routes initialized with TensorFlow ML models and heuristic fallbacks');
 
 /**
  * @swagger
@@ -47,6 +47,9 @@ router.get('/tasks/suggest/:projectId', async (req, res) => {
     if (error.message === 'Project not found') {
       return res.status(404).json({ message: error.message });
     }
+    if (error.message.includes('Invalid project ID format')) {
+      return res.status(400).json({ message: error.message });
+    }
     res.status(500).json({ message: 'Error generating task suggestions', error: error.message });
   }
 });
@@ -55,7 +58,7 @@ router.get('/tasks/suggest/:projectId', async (req, res) => {
  * @swagger
  * /api/ai/tasks/duration/{taskId}:
  *   get:
- *     summary: Predict the duration of a task
+ *     summary: Predict task duration
  *     description: Uses heuristics to predict how long a task will take to complete
  *     parameters:
  *       - in: path
@@ -82,6 +85,9 @@ router.get('/tasks/duration/:taskId', async (req, res) => {
     console.error('Error in task duration prediction endpoint:', error);
     if (error.message === 'Task not found') {
       return res.status(404).json({ message: error.message });
+    }
+    if (error.message.includes('Invalid task ID format')) {
+      return res.status(400).json({ message: error.message });
     }
     res.status(500).json({ message: 'Error predicting task duration', error: error.message });
   }
@@ -119,6 +125,9 @@ router.get('/projects/timeline/:projectId', async (req, res) => {
     if (error.message === 'Project not found') {
       return res.status(404).json({ message: error.message });
     }
+    if (error.message.includes('Invalid project ID format')) {
+      return res.status(400).json({ message: error.message });
+    }
     res.status(500).json({ message: 'Error predicting project timeline', error: error.message });
   }
 });
@@ -128,7 +137,7 @@ router.get('/projects/timeline/:projectId', async (req, res) => {
  * /api/ai/projects/optimize/{projectId}:
  *   get:
  *     summary: Get workflow optimization recommendations
- *     description: Uses heuristics to analyze the project workflow and suggest optimizations
+ *     description: Analyzes project workflow and provides optimization suggestions
  *     parameters:
  *       - in: path
  *         name: projectId
@@ -148,14 +157,17 @@ router.get('/projects/optimize/:projectId', async (req, res) => {
   console.log(`Received request to optimize workflow for project: ${req.params.projectId}`);
   try {
     const optimization = await optimizeWorkflow(req.params.projectId);
-    console.log(`Returning workflow optimization with ${optimization.recommendations.length} recommendations`);
+    console.log(`Returning workflow optimization for project ${req.params.projectId}`);
     res.json(optimization);
   } catch (error) {
     console.error('Error in workflow optimization endpoint:', error);
     if (error.message === 'Project not found') {
       return res.status(404).json({ message: error.message });
     }
-    res.status(500).json({ message: 'Error optimizing workflow', error: error.message });
+    if (error.message.includes('Invalid project ID format')) {
+      return res.status(400).json({ message: error.message });
+    }
+    res.status(500).json({ message: 'Error optimizing project workflow', error: error.message });
   }
 });
 

@@ -50,6 +50,9 @@ importers:
       mongoose:
         specifier: ^7.0.3
         version: 7.8.6
+      node-fetch:
+        specifier: '2'
+        version: 2.7.0
       swagger-jsdoc:
         specifier: ^6.2.8
         version: 6.2.8(openapi-types@12.1.3)

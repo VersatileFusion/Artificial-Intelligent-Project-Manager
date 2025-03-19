@@ -6,7 +6,7 @@ const options = {
     info: {
       title: 'AI Project Manager API',
       version: '1.0.0',
-      description: 'REST API for AI-powered project management platform',
+      description: 'REST API for AI-powered project management platform with TensorFlow ML models and graceful fallbacks to heuristic algorithms when TensorFlow is unavailable.',
       contact: {
         name: 'API Support',
         email: 'support@aiprojectmanager.com',
@@ -215,6 +215,15 @@ const options = {
               type: 'string',
               description: 'Project owner ID',
             },
+            confidence: {
+              type: 'string',
+              description: 'Confidence score for the suggestion (0-100)',
+            },
+            method: {
+              type: 'string',
+              enum: ['ml', 'heuristic'],
+              description: 'Method used for suggestion (ml = TensorFlow ML, heuristic = rule-based fallback)',
+            },
           },
         },
         DurationPrediction: {
@@ -248,6 +257,11 @@ const options = {
             confidence: {
               type: 'number',
               description: 'Confidence score (0-1)',
+            },
+            method: {
+              type: 'string',
+              enum: ['ml', 'heuristic'],
+              description: 'Method used for prediction (ml = TensorFlow ML, heuristic = rule-based fallback)',
             },
           },
         },
@@ -301,7 +315,47 @@ const options = {
               format: 'date-time',
               description: 'Timestamp when analysis was generated',
             },
+            method: {
+              type: 'string',
+              enum: ['ml', 'heuristic'],
+              description: 'Method used for optimization (ml = TensorFlow ML, heuristic = rule-based fallback)',
+            },
           },
+        },
+        ProjectTimeline: {
+          type: 'array',
+          items: {
+            type: 'object',
+            properties: {
+              taskId: {
+                type: 'string',
+                description: 'Task ID',
+              },
+              taskTitle: {
+                type: 'string',
+                description: 'Task title',
+              },
+              predictedDays: {
+                type: 'number',
+                description: 'Predicted days to complete',
+              },
+              estimatedCompletionDate: {
+                type: 'string',
+                format: 'date',
+                description: 'Estimated completion date',
+              },
+              confidence: {
+                type: 'number',
+                description: 'Confidence score (0-1)',
+              },
+              method: {
+                type: 'string',
+                enum: ['ml', 'heuristic'],
+                description: 'Method used for prediction (ml = TensorFlow ML, heuristic = rule-based fallback)',
+              },
+            },
+          },
+          description: 'Timeline predictions for all tasks in a project',
         },
         Error: {
           type: 'object',
@@ -326,6 +380,28 @@ const options = {
     security: [
       {
         bearerAuth: [],
+      }
+    ],
+    tags: [
+      {
+        name: 'Auth',
+        description: 'Authentication endpoints'
+      },
+      {
+        name: 'Projects',
+        description: 'Project management endpoints'
+      },
+      {
+        name: 'Tasks',
+        description: 'Task management endpoints'
+      },
+      {
+        name: 'AI',
+        description: 'Artificial Intelligence features with TensorFlow ML (with automatic fallback to heuristic algorithms when TensorFlow is unavailable)'
+      },
+      {
+        name: 'Users',
+        description: 'User management endpoints'
       }
     ],
   },
