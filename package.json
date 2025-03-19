@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "test": "jest"
+    "test": "jest",
+    "format": "prettier --write .",
+    "build": "echo 'No build step required for JavaScript project'"
   },
   "keywords": [
     "project-management",
@@ -38,7 +40,8 @@
   },
   "devDependencies": {
     "jest": "^29.5.0",
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "prettier": "^3.0.0"
   },
   "engines": {
     "node": ">=14.0.0"

@@ -27,6 +27,7 @@ The AI Project Manager is designed to solve common project management challenges
 ## Tech Stack
 
 - **Backend**: Node.js with JavaScript
+- **Package Manager**: pnpm
 - **Database**: MongoDB with Mongoose
 - **AI/ML**: TensorFlow.js
 - **Authentication**: JWT
@@ -36,29 +37,34 @@ The AI Project Manager is designed to solve common project management challenges
 
 - Node.js (v14 or higher)
 - MongoDB (v4.4 or higher)
-- npm or yarn
+- pnpm (v8 or higher)
 
 ## Installation
 
-1. Clone the repository:
+1. Install pnpm (if not already installed):
+```bash
+npm install -g pnpm
+```
+
+2. Clone the repository:
 ```bash
 git clone https://github.com/yourusername/ai-project-manager.git
 cd ai-project-manager
 ```
 
-2. Install dependencies:
+3. Install dependencies:
 ```bash
-npm install
+pnpm install
 ```
 
-3. Create a `.env` file in the root directory and configure your environment variables:
+4. Create a `.env` file in the root directory and configure your environment variables:
 ```bash
 cp .env.example .env
 ```
 
-4. Start the development server:
+5. Start the development server:
 ```bash
-npm run dev
+pnpm dev
 ```
 
 ## Project Structure
@@ -71,7 +77,6 @@ src/
 ├── models/         # Database models
 ├── routes/         # API routes
 ├── services/       # Business logic
-├── types/          # TypeScript type definitions
 └── utils/          # Utility functions
 ```
 
@@ -84,13 +89,13 @@ The API documentation is available at `/api-docs` when running the server.
 ### Running Tests
 
 ```bash
-npm test
+pnpm test
 ```
 
 ### Building for Production
 
 ```bash
-npm run build
+pnpm build
 ```
 
 ### Code Style
@@ -98,7 +103,7 @@ npm run build
 This project uses ESLint and Prettier for code formatting. Run the following command to format your code:
 
 ```bash
-npm run format
+pnpm format
 ```
 
 ## Contributing
