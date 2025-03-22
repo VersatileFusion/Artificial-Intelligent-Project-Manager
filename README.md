@@ -665,6 +665,12 @@ Please refer to [CONTRIBUTING.md](CONTRIBUTING.md) for detailed contribution gui
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## Contact
+
+- **Author**: Erfan Ahmadvand
+- **Phone**: +989109924707
+- **GitHub**: [Erfan Ahmadvand](https://github.com/erfan)
+
 ## Acknowledgments
 
 - Thanks to all contributors who have helped shape this project

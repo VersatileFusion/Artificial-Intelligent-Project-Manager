@@ -10,6 +10,7 @@ Thank you for considering contributing to the AI Project Manager! This document 
 ### Table of Contents
 
 - [Code of Conduct](#code-of-conduct)
+- [Project Maintainer](#project-maintainer)
 - [How Can I Contribute?](#how-can-i-contribute)
 - [Development Setup](#development-setup)
 - [Pull Request Process](#pull-request-process)
@@ -19,6 +20,11 @@ Thank you for considering contributing to the AI Project Manager! This document 
 ### Code of Conduct
 
 This project and everyone participating in it is governed by our Code of Conduct. By participating, you are expected to uphold this code. Please report unacceptable behavior to the project maintainers.
+
+### Project Maintainer
+
+- **Erfan Ahmadvand**
+- **Contact**: +989109924707
 
 ### How Can I Contribute?
 
@@ -135,6 +141,7 @@ Thank you for contributing to the AI Project Manager! Your efforts help make thi
 ### فهرست مطالب
 
 - [آیین نامه رفتاری](#آیین-نامه-رفتاری)
+- [نگهدارنده پروژه](#نگهدارنده-پروژه)
 - [چگونه می‌توانم مشارکت کنم؟](#چگونه-می‌توانم-مشارکت-کنم)
 - [تنظیمات توسعه](#تنظیمات-توسعه)
 - [فرآیند درخواست ادغام](#فرآیند-درخواست-ادغام)
@@ -144,6 +151,11 @@ Thank you for contributing to the AI Project Manager! Your efforts help make thi
 ### آیین نامه رفتاری
 
 این پروژه و همه افرادی که در آن مشارکت می‌کنند، توسط آیین نامه رفتاری ما اداره می‌شوند. با مشارکت، از شما انتظار می‌رود این آیین نامه را رعایت کنید. لطفاً رفتار غیرقابل قبول را به نگهدارندگان پروژه گزارش دهید.
+
+### نگهدارنده پروژه
+
+- **عرفان احمدوند**
+- **تماس**: +989109924707
 
 ### چگونه می‌توانم مشارکت کنم؟
 
